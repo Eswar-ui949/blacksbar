@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creative Portfolio - Graphic Design, Video & 3D</title>
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    color: #222;
+    line-height: 1.7;
+  }
+  a {
+    color: #1e88e5;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  /* Header/Hero */
+  header {
+    position: relative;
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 0;
+  }
+  header .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+  header h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+  }
+  header p {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  /* About */
+  #about {
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  #about img {
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    object-fit: cover;
+  }
+  #about .text {
+    flex: 1;
+  }
+  #about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #1e88e5;
+  }
+  #about p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+  }
+
+  /* Portfolio */
+  #portfolio {
+    padding: 80px 0;
+  }
+  #portfolio h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #1e88e5;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .gallery img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 12px 35px rgba(30,136,229,0.3);
+  }
+
+  /* Services (3 columns) */
+  #services {
+    background: #e3f2fd;
+    padding: 80px 0;
+    text-align: center;
+  }
+  #services h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #0d47a1;
+  }
+  .services-list {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  .service {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 40px 30px;
+    max-width: 350px;
+    flex: 1;
+    transition: transform 0.3s ease;
+  }
+  .service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(30,136,229,0.25);
+  }
+  .service svg {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 25px;
+    fill: #1e88e5;
+  }
+  .service h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #0d47a1;
+  }
+  .service p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  /* Contact */
+  #contact {
+    padding: 80px 0;
+    text-align: center;
+  }
+  #contact h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #1e88e5;
+  }
+  #contact p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  #contact a {
+    background: #1e88e5;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+    display: inline-block;
+  }
+  #contact a:hover {
+    background: #0d47a1;
+  }
+
+  /* Footer */
+  footer {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    #about {
+      flex-direction: column;
+    }
+    #about img {
+      width: 85%;
+      margin-bottom: 35px;
+    }
+    .services-list {
+      flex-direction: column;
+      gap: 40px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hero-content">
+    <h1>Your Name</h1>
+    <p>Graphic Designer • Video Editor • 3D Artist</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about">
+    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=700&q=80" alt="Your photo" />
+    <div class="text">
+      <h2>About Me</h2>
+      <p>
+        Hi! I’m a multi-disciplinary creative specializing in graphic design, video editing, and 3D art. I craft compelling visuals and dynamic content to bring ideas to life across media platforms. My passion is turning concepts into engaging stories through design and animation.
+      </p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>My Work</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=700&q=80" alt="Project 1" />
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Project 2" />
+      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=700&q=80" alt="Project 3" />
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=700&q=80" alt="Project 4" />
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>What I Do</h2>
+    <div class="services-list">
+      <div class="service">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 4a28 28 0 1028 28A28 28 0 0032 4zm0 52a24 24 0 1124-24 24 24 0 01-24 24z"/><path d="M39 22a7 7 0 11-7-7 7 7 0 017 7zm0 8h-6a6 6 0 00-6 6v5h18v-5a6 6 0 00-6-6z"/></svg>
+        <h3>Graphic Design</h3>
+        <p>Brand identity, digital illustrations, UI/UX design, and creative branding solutions that elevate your visual presence.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M44 12H20a4 4 0 00-4 4v24a4 4 0 004 4h24a4 4 0 004-4V16a4 4 0 00-4-4zm-1 24H21v-2h22zm0-6H21v-2h22z"/></svg>
+        <h3>Video Editing</h3>
+        <p>Professional video editing, motion graphics, color grading, and dynamic effects to create compelling stories.</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M58 32a26 26 0 11-26-26 26 26 0 0126 26zM16 40a4 4 0 10-4-4 4 4 0 004 4z"/></svg>
+        <h3>3D Art & Animation</h3>
+        <p>3D modeling, animation, and rendering to bring lifelike and imaginative creations to digital life.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s Connect</h2>
+    <p>If you want to collaborate or learn more about my work, feel free to reach out!</p>
+    <a href="mailto:your.email@example.com">Email Me</a>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Your Name. All rights reserved.
+</footer>
+
+</body>
+</html>
